@@ -15,9 +15,9 @@ const MainLayout = () => {
                 <div className="min-h-[calc(100vh-321px)]">
                     <Outlet />
                 </div>
-                <Footer />
-                <Toaster position="top-center" reverseOrder={false} />
             </div>
+            <Footer />
+            <Toaster position="top-center" reverseOrder={false} />
         </div>
 
     );
