@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between py-4 px-4 md:px-8 lg:px-12 xl:px-16">
                 {/* Logo */}
                 <div className="flex items-center">
-                    <img src="/assets/Logo.png" className="h-9 w-10" alt="Logo" />
+                    <img src="/Logo.png" className="h-9 w-10" alt="Logo" />
                     <p className="text-2xl md:text-3xl lg:text-4xl font-bold ml-2">BOOKIO</p>
                 </div>
 
@@ -86,7 +86,7 @@ const Navbar = () => {
                 <div className="flex justify-between p-4">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <img src="/assets/Logo.png" className="h-9 w-10" alt="Logo" />
+                        <img src="/Logo.png" className="h-9 w-10" alt="Logo" />
                         <p className="text-2xl md:text-3xl lg:text-4xl font-bold ml-2">BOOKIO</p>
                     </div>
                     <button onClick={toggleMenu}>
