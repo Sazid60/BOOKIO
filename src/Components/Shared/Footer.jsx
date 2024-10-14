@@ -3,12 +3,12 @@ import { FaFacebookF, FaGoogle, FaInstagram, FaPinterest, FaTwitter } from "reac
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-10 px-5 md:px-10 lg:px-20">
+    <footer className="bg-white py-10 px-5 md:px-10 lg:px-20 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 xl:gap-16 text-sm">
         <div className="space-y-4">
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">BOOKIO</p>
           <p className="text-sm md:text-base lg:text-lg">
-            We are a team of designers and developers who create high-quality premium Shopify themes.
+          We are a passionate team dedicated to providing a diverse selection of books for every reader.
           </p>
           <div className="text-xs md:text-sm lg:text-base">
             <p><span className="font-bold">Address:</span> 169-C, Technohub, Dubai</p>
@@ -44,7 +44,7 @@ const Footer = () => {
               placeholder="Enter your email address here..."
               className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none"
             />
-            <button className=" text-white hover:bg-[#CFAE7A] bg-orange-400 py-2 px-6 rounded w-full sm:w-auto">
+            <button className=" text-white hover:bg-[#7375e9] bg-[#6366F1] py-2 px-6 rounded w-full sm:w-auto">
               Subscribe
             </button>
           </div>

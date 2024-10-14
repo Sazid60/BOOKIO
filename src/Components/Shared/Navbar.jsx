@@ -13,15 +13,15 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
-    const activeLink = "text-orange-400 font-bold underline underline-offset-8 text-base flex items-center gap-1 uppercase";
-    const deActiveLink = "transition-all hover:underline underline-offset-8 hover:text-[#CFAE7A] flex items-center gap-1 uppercase";
+    const activeLink = "text-[#6366F1] font-bold underline underline-offset-8 text-base flex items-center gap-1 uppercase";
+    const deActiveLink = "transition-all hover:underline underline-offset-8 hover:text-[#7375e9] flex items-center gap-1 uppercase";
 
-    const sideActiveLink = "text-orange-400 font-bold underline underline-offset-8 text-sm md:text-xl lg:text-2xl flex items-center gap-1 uppercase"; // Adjusted for responsiveness
-    const sideDeActiveLink = "transition-all hover:text-[#CFAE7A] hover:underline underline-offset-8 text-sm md:text-xl lg:text-2xl flex items-center gap-1 uppercase"; // Adjusted for responsiveness
+    const sideActiveLink = "text-[#6366F1] font-bold underline underline-offset-8 text-sm md:text-xl lg:text-2xl flex items-center gap-1 uppercase"; 
+    const sideDeActiveLink = "transition-all hover:text-[#7375e9] hover:underline underline-offset-8 text-sm md:text-xl lg:text-2xl flex items-center gap-1 uppercase";
 
     return (
         <>
-            <div className="flex items-center justify-between py-4 px-4 md:px-8 lg:px-12 xl:px-16">
+            <div className="flex items-center justify-between py-4 px-4 md:px-8 lg:px-12 xl:px-16 bg-black/5 backdrop-blur-md ">
                 <div className="flex items-center">
                     <img src={logo} className="h-9 w-10" alt="Logo" />
                     <p className="text-2xl md:text-3xl lg:text-4xl font-bold ml-2">BOOKIO</p>
@@ -68,7 +68,7 @@ const Navbar = () => {
             )}
 
             <div
-                className={`fixed top-0 right-0 h-full w-64 bg-[#faedca] shadow-lg transform ${isOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${isOpen ? "translate-x-0" : "translate-x-full"
                     } transition-transform duration-300 ease-in-out md:hidden`}
             >
                 <div className="flex justify-between p-4">
