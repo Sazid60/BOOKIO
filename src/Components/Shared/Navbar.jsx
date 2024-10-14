@@ -1,4 +1,4 @@
-import logo from './assets/logo.png';
+import logo from '../../assets/logo.png';
 import { useState } from "react";
 import { IoMdCart } from "react-icons/io";
 import { NavLink } from "react-router-dom";
