@@ -8,7 +8,7 @@ const MainLayout = () => {
     return (
         <div className="bg-[#FDF6E3] min-h-screen font-playfair">
             
-            <div className="h-16 md:h-20 bg-[#faedca] px-8">
+            <div className="h-16 md:h-20 bg-[#faedca] xl:px-8">
                 <Navbar />
             </div>
             <div className="container mx-auto ">
