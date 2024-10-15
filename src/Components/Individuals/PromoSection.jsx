@@ -37,7 +37,7 @@ const PromoSection = () => {
                     Get Special Promo <br /> All Books Are <span className='text-indigo-500'>50%</span> Off Now!
                 </h2>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 justify-items-center px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32">
+                <div className="grid grid-cols-2 md:grid-cols-4  mb-8 justify-items-center px-4 sm:px-6 md:px-12 lg:px-20 xl:px-56">
                     {Object.entries(timeLeft).map(([unit, value], idx) => (
                         <div key={idx} className="text-center">
                             <div className="w-24 h-24 border border-black text-black flex items-center justify-center rounded-full text-4xl font-semibold shadow-lg">
@@ -48,18 +48,16 @@ const PromoSection = () => {
                     ))}
                 </div>
 
-
-
                 <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a
                         href="#"
-                        className="relative inline-block text-lg font-medium text-gray-900 py-3 px-8 border border-gray-900 hover:shadow-2xl hover:text-indigo-500 transition duration-300"
+                        className="relative inline-block text-lg font-medium text-gray-900 py-3 px-8 border border-gray-900  hover:shadow-2xl hover:text-indigo-500 transition duration-300"
                     >
                         Explore Now
                     </a>
                     <a
                         href="#"
-                        className="flex items-center space-x-2 text-lg font-medium text-gray-900 hover:underline transition duration-300"
+                        className="flex items-center justify-center space-x-2 text-lg font-medium text-gray-900 hover:underline transition duration-300"
                     >
                         <span>Read More</span>
                         <i className="jki jki-arrow-right-line" aria-hidden="true"></i>
