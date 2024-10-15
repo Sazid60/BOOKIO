@@ -16,7 +16,7 @@ const MainLayout = () => {
                     <Banner />
                 </div>
             </div>
-            <div className="container mx-auto ">
+            <div className=" ">
                 <div className="min-h-[calc(100vh-321px)]">
                     <Outlet />
                 </div>
