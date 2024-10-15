@@ -31,27 +31,29 @@ const PromoSection = () => {
     }, []);
 
     return (
-        <div className="bg-[url('/Promo-BG.jpg')] py-12 bg-fixed">
+        <div className="bg-[url('/Promo-BG.jpg')] py-12 bg-cover bg-fixed">
             <div className="container mx-auto text-center px-6">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 leading-snug">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-snug">
                     Get Special Promo <br /> All Books Are <span className='text-indigo-500'>50%</span> Off Now!
                 </h2>
 
-                <div className="flex justify-center space-x-6 mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 justify-items-center px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32">
                     {Object.entries(timeLeft).map(([unit, value], idx) => (
                         <div key={idx} className="text-center">
-                            <div className="w-20 h-20 border border-black  text-black flex items-center justify-center rounded-full text-3xl font-semibold">
+                            <div className="w-24 h-24 border border-black text-black flex items-center justify-center rounded-full text-4xl font-semibold shadow-lg">
                                 {value}
                             </div>
-                            <div className="text-sm text-gray-600 capitalize mt- shadow-2xl">{unit}</div>
+                            <div className="text-sm text-gray-600 capitalize mt-2">{unit}</div>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex justify-center space-x-6">
+
+
+                <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a
                         href="#"
-                        className="relative inline-block text-lg font-medium text-gray-900 py-3 px-8 border border-gray-900  hover:shadow-2xl hover:text-indigo-500 transition duration-300"
+                        className="relative inline-block text-lg font-medium text-gray-900 py-3 px-8 border border-gray-900 hover:shadow-2xl hover:text-indigo-500 transition duration-300"
                     >
                         Explore Now
                     </a>
