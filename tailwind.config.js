@@ -9,6 +9,8 @@ export default {
       fontFamily: {
         playfair: ['"Playfair Display"', 'serif'],
         play: ['"Play"', 'sans-serif'],
+        caveat: ['"Caveat"', 'cursive'], 
+        updock: ['"Updock"', 'cursive'],
       },
     },
   },

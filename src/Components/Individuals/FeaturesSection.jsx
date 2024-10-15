@@ -16,7 +16,7 @@ const FeaturesSection = () => {
     {
       icon: <FiCreditCard className="text-4xl text-indigo-500" />,
       title: "Secure Online Payment",
-      description: "Make payments safely and easily through our encrypted and secure online payment gateway.",
+      description: "Make payments safely and easily through our encrypted and secure payment.",
     },
     {
       icon: <FiShoppingCart className="text-4xl text-indigo-500" />,
@@ -26,13 +26,13 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-12">
+    <section className="">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 hover:shadow-xl transition-shadow duration-300 text-center"
+              className="bg-white p-6 hover:border border-black duration-300 text-center"
             >
               <div className="flex justify-center mb-4">
                 {feature.icon}
