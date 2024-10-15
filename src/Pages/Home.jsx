@@ -1,7 +1,9 @@
+import AuthorOfTheMonth from "../Components/Individuals/AuthorOfTheMonth";
 import Banner from "../Components/Individuals/Banner";
 import FeaturesSection from "../Components/Individuals/FeaturesSection";
 import NewsAndArticles from "../Components/Individuals/NewsAndArticles";
 import PromoSection from "../Components/Individuals/PromoSection";
+
 
 
 const Home = () => {
@@ -12,6 +14,8 @@ const Home = () => {
             </div>
             <FeaturesSection />
             <PromoSection />
+            
+            <AuthorOfTheMonth/>
             <NewsAndArticles/>
         </div>
     );
