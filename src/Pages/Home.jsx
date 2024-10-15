@@ -1,9 +1,10 @@
+import FeaturesSection from "../Components/Individuals/FeaturesSection";
 
 
 const Home = () => {
     return (
         <div>
-            home
+            <FeaturesSection />
         </div>
     );
 };
