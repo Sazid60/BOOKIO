@@ -14,7 +14,7 @@ const Home = () => {
     const { data: allBooks = [], isLoading } = useQuery({
         queryKey: ['allBooks'],
         queryFn: async () => {
-            const { data } = await axios.get(`https://gutendex.com/books/`)
+            const { data } = await axios.get(`https://gutendex.com/books?limit=7`)
             return data
         },
     })

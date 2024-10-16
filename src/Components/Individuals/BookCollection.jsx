@@ -10,10 +10,11 @@ const BookCollection = () => {
     const [searchTriggered, setSearchTriggered] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);  
 
+    // Change the limit to 12 for pagination
     const { data: allBooks = [], isLoading, isError } = useQuery({
         queryKey: ['Books', searchTriggered ? searchTerm : '', selectedSubject, currentPage], 
         queryFn: async () => {
-            let url = `https://gutendex.com/books?search=${searchTerm}&page=${currentPage}`;
+            let url = `https://gutendex.com/books?search=${searchTerm}&page=${currentPage}&limit=8`; // Added limit
             if (selectedSubject) {
                 url += `&topic=${selectedSubject.toLowerCase()}`;  
             }
@@ -23,7 +24,8 @@ const BookCollection = () => {
         enabled: true,
     });
 
-    const books = allBooks.results ? allBooks.results.slice(0, 8) : []; 
+    // Update the books to show the full results
+    const books = allBooks.results || []; 
 
     const truncateText = (text, maxWords) => {
         const words = text.split(' ');
@@ -108,7 +110,7 @@ const BookCollection = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
-                {books?.map(book => (
+                {books.map(book => (
                     <div key={book.id} className="font-caveat p-2 lg:p-4 border border-black">
                         <div className="text-center">
                             <div className="flex justify-center items-center">
@@ -149,7 +151,7 @@ const BookCollection = () => {
                 </button>
                 <button
                     onClick={handleNextPage}
-                    className={`p-2 ${!allBooks.next && 'cursor-not-allowed opacity-50'} border border-black hover:text-violet-600 `}
+                    className={`p-2 ${!allBooks.next && 'cursor-not-allowed opacity-50'} border border-black hover:text-violet-600`}
                     disabled={!allBooks.next}
                 >
                     Next
