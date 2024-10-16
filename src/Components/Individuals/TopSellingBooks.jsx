@@ -3,6 +3,7 @@ import { InfinitySpin } from "react-loader-spinner";
 
 
 
+// eslint-disable-next-line react/prop-types
 const TopSellingBooks = ({ books, isLoading }) => {
     
     const truncateText = (text, maxWords) => {
@@ -27,6 +28,7 @@ const TopSellingBooks = ({ books, isLoading }) => {
         </div>
     );
 
+    // eslint-disable-next-line react/prop-types
     const reversedBooks = books.slice().reverse(); 
 
     return (

@@ -1,5 +1,7 @@
 import AuthorOfTheMonth from "../Components/Individuals/AuthorOfTheMonth";
 import Banner from "../Components/Individuals/Banner";
+import BookCollection from "../Components/Individuals/BookCollection";
+
 import FeaturesSection from "../Components/Individuals/FeaturesSection";
 import NewsAndArticles from "../Components/Individuals/NewsAndArticles";
 import PromoSection from "../Components/Individuals/PromoSection";
@@ -38,7 +40,15 @@ const Home = () => {
 
             <FeaturesSection />
             <PromoSection />
-
+            <div className="container mx-auto p-5">
+                <div className="text-left mb-5">
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Books Collections</h2>
+                    <p className="mt-2 text-sm md:text-lg">
+                        Discover the latest works, interviews, and behind-the-scenes
+                    </p>
+                </div>
+                <BookCollection books={books} isLoading={isLoading} />
+            </div>
             <AuthorOfTheMonth />
             <NewsAndArticles />
         </div>
