@@ -8,12 +8,16 @@ const BookCollection = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedSubject, setSelectedSubject] = useState('');
     const [searchTriggered, setSearchTriggered] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);  // Added state to track current page
+    const [currentPage, setCurrentPage] = useState(1);  
 
     const { data: allBooks = [], isLoading, isError } = useQuery({
-        queryKey: ['Books', searchTriggered ? searchTerm : '', currentPage],  // Include currentPage in query key
+        queryKey: ['Books', searchTriggered ? searchTerm : '', selectedSubject, currentPage], 
         queryFn: async () => {
-            const { data } = await axios.get(`https://gutendex.com/books?search=${searchTerm}&page=${currentPage}`);
+            let url = `https://gutendex.com/books?search=${searchTerm}&page=${currentPage}`;
+            if (selectedSubject) {
+                url += `&topic=${selectedSubject.toLowerCase()}`;  
+            }
+            const { data } = await axios.get(url);
             return data;
         },
         enabled: true,
@@ -38,6 +42,8 @@ const BookCollection = () => {
 
     const handleSortChange = (e) => {
         setSelectedSubject(e.target.value);
+        setSearchTriggered(true);  
+        setCurrentPage(1);  
     };
 
     const handleSearch = () => {
