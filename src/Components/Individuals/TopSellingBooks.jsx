@@ -43,7 +43,7 @@ const TopSellingBooks = ({ books, isLoading }) => {
                             </div>
                             <div className="h-14 lg:mt-3 flex flex-col justify-center">
                                 <h1 className="font-bold text-sm md:text-lg mb-3">
-                                    {truncateText(reversedBooks[0].title, 2)} 
+                                    {truncateText(reversedBooks[0].title, 3)} 
                                 </h1>
                                 <p className="font-bold text-xs">Author : <span className="font-normal">
                                     {truncateText(reversedBooks[0].authors[0].name, 3)}
@@ -80,7 +80,7 @@ const TopSellingBooks = ({ books, isLoading }) => {
                             </div>
                         </div>
                         <div className="flex justify-between items-center mb-3 text-xs">
-                            <a href={book.formats["text/html"]} target="_blank"><button className="hover:underline hover:text-indigo-500">Read Book</button></a>
+                            <a href={book.formats["text/html"]} target="_blank"><button className="hover:underline hover:text-violet-600">Read Book</button></a>
                             <button><FaRegHeart /></button>
                         </div>
                         <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">View Details</button>
