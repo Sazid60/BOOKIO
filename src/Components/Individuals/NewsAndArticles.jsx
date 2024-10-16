@@ -39,7 +39,7 @@ const NewsAndArticles = () => {
                             />
                         </div>
                         <div className="p-2 md:p-4">
-                            <h3 className="text-sm md:text-lg lg:text-xl font-semibold font-caveat">{article.title}</h3>
+                            <h3 className="text-sm md:text-lg lg:text-xl font-semibold font-caveat mt-4">{article.title}</h3>
                             <p className="mt-2 text-gray-700 text-sm">{article.excerpt}</p>
                         </div>
                     </div>
