@@ -1,11 +1,24 @@
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { InfinitySpin } from "react-loader-spinner";
 import { truncateText } from './../../Functionalities/bookFunction'; 
+import { useEffect, useState } from "react";
+import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from './../../Functionalities/localStorageUtil'
 
 // eslint-disable-next-line react/prop-types
 const TopSellingBooks = ({ books, isLoading }) => {
+    const [wishlistedBooks, setWishlistedBooks] = useState([]);
 
-    
+    useEffect(() => {
+        const storedBooks = getWishlistedBooks();
+        setWishlistedBooks(storedBooks);
+    }, []);
+
+    const handleToggleWishlist = (book) => {
+        const updatedBooks = toggleBookInWishlist(book, wishlistedBooks);
+        setWishlistedBooks(updatedBooks);
+        saveWishlistedBooks(updatedBooks);
+    };
+
     if (isLoading) return (
         <div className="flex justify-center items-center">
             <InfinitySpin
@@ -20,7 +33,6 @@ const TopSellingBooks = ({ books, isLoading }) => {
         </div>
     );
 
-    // eslint-disable-next-line react/prop-types
     const reversedBooks = books.slice().reverse();
 
     return (
@@ -47,7 +59,9 @@ const TopSellingBooks = ({ books, isLoading }) => {
                             <a href={reversedBooks[0].formats["text/html"]} target="_blank" rel="noopener noreferrer">
                                 <button className="hover:underline hover:text-indigo-500">Read Book</button>
                             </a>
-                            <button><FaRegHeart /></button>
+                            <button onClick={() => handleToggleWishlist(reversedBooks[0])} aria-label={wishlistedBooks.some(wishlistedBook => wishlistedBook.id === reversedBooks[0].id) ? "Remove from wishlist" : "Add to wishlist"}>
+                                {wishlistedBooks.some(wishlistedBook => wishlistedBook.id === reversedBooks[0].id) ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
+                            </button>
                         </div>
                         <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">View Details</button>
                     </div>
@@ -76,7 +90,9 @@ const TopSellingBooks = ({ books, isLoading }) => {
                             <a href={book.formats["text/html"]} target="_blank" rel="noopener noreferrer">
                                 <button className="hover:underline hover:text-violet-600">Read Book</button>
                             </a>
-                            <button><FaRegHeart /></button>
+                            <button onClick={() => handleToggleWishlist(book)} aria-label={wishlistedBooks.some(wishlistedBook => wishlistedBook.id === book.id) ? "Remove from wishlist" : "Add to wishlist"}>
+                                {wishlistedBooks.some(wishlistedBook => wishlistedBook.id === book.id) ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
+                            </button>
                         </div>
                         <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">View Details</button>
                     </div>

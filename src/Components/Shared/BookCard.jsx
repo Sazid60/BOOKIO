@@ -1,7 +1,27 @@
-import { FaRegHeart } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { truncateText } from './../../Functionalities/bookFunction';
+import { getWishlistedBooks, saveWishlistedBooks } from '../../Functionalities/localStorageUtil'; 
 
 const BookCard = ({ book }) => {
+    const [isWishlisted, setIsWishlisted] = useState(false);
+
+    const toggleWishlist = () => {
+        const wishlistedBooks = getWishlistedBooks()
+        const updatedBooks = isWishlisted
+            ? wishlistedBooks.filter(wishlistedBook => wishlistedBook.id !== book.id)
+            : [...wishlistedBooks, book];
+
+        saveWishlistedBooks(updatedBooks);
+        setIsWishlisted(!isWishlisted); 
+    };
+
+    useEffect(() => {
+        const wishlistedBooks = getWishlistedBooks();
+        const isInWishlist = wishlistedBooks.some(wishlistedBook => wishlistedBook.id === book.id);
+        setIsWishlisted(isInWishlist);
+    }, [book.id]);
+
     const authorName = truncateText(book?.authors[0]?.name || "Unknown Author", 4);
     const genre = truncateText(book?.subjects[0] || "Unknown Genre", 3);
     const id = book?.id;
@@ -31,7 +51,9 @@ const BookCard = ({ book }) => {
                 <a href={book?.formats["text/html"]} target="_blank" rel="noopener noreferrer">
                     <button className="hover:underline hover:text-indigo-500">Read Book</button>
                 </a>
-                <button><FaRegHeart /></button>
+                <button onClick={toggleWishlist} aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}>
+                    {isWishlisted ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
+                </button>
             </div>
             <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">
                 View Details
