@@ -3,7 +3,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import { truncateText } from './../../Functionalities/bookFunction';
 import { useEffect, useState } from "react";
 import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from './../../Functionalities/localStorageUtil';
-import toast from 'react-hot-toast'; port toast
+import toast from 'react-hot-toast';
 
 // eslint-disable-next-line react/prop-types
 const TopSellingBooks = ({ books, isLoading }) => {
