@@ -1,7 +1,7 @@
 
 export const truncateText = (text, maxWords) => {
     const words = text.split(' ');
-    return words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : text;
+    return words.length > maxWords ? words.slice(0, maxWords).join(' ') + '' : text;
 };
 
 export const handleSearchChange = (e, setSearchTerm, setSearchTriggered) => {

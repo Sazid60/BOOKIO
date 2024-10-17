@@ -1,19 +1,11 @@
 import { FaRegHeart } from "react-icons/fa";
 import { InfinitySpin } from "react-loader-spinner";
-
-
+import { truncateText } from './../../Functionalities/bookFunction'; 
 
 // eslint-disable-next-line react/prop-types
 const TopSellingBooks = ({ books, isLoading }) => {
-    
-    const truncateText = (text, maxWords) => {
-        const words = text.split(' ');
-        if (words.length > maxWords) {
-            return words.slice(0, maxWords).join(' ') + '.';
-        }
-        return text;
-    };
 
+    
     if (isLoading) return (
         <div className="flex justify-center items-center">
             <InfinitySpin
@@ -29,11 +21,10 @@ const TopSellingBooks = ({ books, isLoading }) => {
     );
 
     // eslint-disable-next-line react/prop-types
-    const reversedBooks = books.slice().reverse(); 
+    const reversedBooks = books.slice().reverse();
 
     return (
         <div className="flex flex-col md:flex-row gap-3 items-start">
-           
             {reversedBooks.length > 0 && (
                 <div className="w-full md:w-[40%] lg:w-[30%] md:sticky md:top-0">
                     <div className="font-caveat p-2 lg:p-4 border border-black">
@@ -41,18 +32,21 @@ const TopSellingBooks = ({ books, isLoading }) => {
                             <div className="flex justify-center items-center">
                                 <img src={reversedBooks[0].formats["image/jpeg"]} alt={reversedBooks[0].title} />
                             </div>
-                            <div className="h-14 lg:mt-3 flex flex-col justify-center">
+                            <div className="h-20 lg:mt-3 flex flex-col justify-center">
                                 <h1 className="font-bold text-sm md:text-lg mb-3">
-                                    {truncateText(reversedBooks[0].title, 3)} 
+                                    {truncateText(reversedBooks[0].title, 3)}
                                 </h1>
                                 <p className="font-bold text-xs">Author : <span className="font-normal">
                                     {truncateText(reversedBooks[0].authors[0].name, 3)}
-                                </span>
-                                </p>
+                                </span></p>
+                                <p className="text-xs text-gray-500">Genre: {truncateText(reversedBooks[0].subjects.join(', '), 4)}</p> 
+                                <p className="text-xs text-gray-500">ID: {reversedBooks[0].id}</p> 
                             </div>
                         </div>
                         <div className="flex justify-between items-center mb-3 text-xs">
-                            <a href={reversedBooks[0].formats["text/html"]} target="_blank"><button className="hover:underline hover:text-indigo-500">Read Book</button></a>
+                            <a href={reversedBooks[0].formats["text/html"]} target="_blank" rel="noopener noreferrer">
+                                <button className="hover:underline hover:text-indigo-500">Read Book</button>
+                            </a>
                             <button><FaRegHeart /></button>
                         </div>
                         <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">View Details</button>
@@ -60,7 +54,6 @@ const TopSellingBooks = ({ books, isLoading }) => {
                 </div>
             )}
 
-            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-6 gap-4 w-full md:w-[60%] lg:w-[70%]">
                 {reversedBooks.slice(1, 7).map(book => (
                     <div key={book.id} className="font-caveat p-2 lg:p-4 border border-black">
@@ -68,19 +61,21 @@ const TopSellingBooks = ({ books, isLoading }) => {
                             <div className="flex justify-center items-center">
                                 <img src={book.formats["image/jpeg"]} alt={book.title} />
                             </div>
-
-                            <div className="h-14 flex flex-col justify-center">
+                            <div className="h-24 flex flex-col justify-center">
                                 <h1 className="font-bold text-sm mb-3">
-                                    {truncateText(book.title, 2)} 
+                                    {truncateText(book.title, 2)}
                                 </h1>
                                 <p className="font-bold text-xs">Author : <span className="font-normal">
-                                    {truncateText(book.authors[0].name, 3)} 
-                                </span>
-                                </p>
+                                    {truncateText(book.authors[0].name, 3)}
+                                </span></p>
+                                <p className="text-xs text-gray-500">Genre: {truncateText(book.subjects.join(', '), 2)}</p> 
+                                <p className="text-xs text-gray-500">ID: {book.id}</p> 
                             </div>
                         </div>
                         <div className="flex justify-between items-center mb-3 text-xs">
-                            <a href={book.formats["text/html"]} target="_blank"><button className="hover:underline hover:text-violet-600">Read Book</button></a>
+                            <a href={book.formats["text/html"]} target="_blank" rel="noopener noreferrer">
+                                <button className="hover:underline hover:text-violet-600">Read Book</button>
+                            </a>
                             <button><FaRegHeart /></button>
                         </div>
                         <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">View Details</button>
