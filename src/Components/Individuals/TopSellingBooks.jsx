@@ -1,8 +1,9 @@
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { InfinitySpin } from "react-loader-spinner";
-import { truncateText } from './../../Functionalities/bookFunction'; 
+import { truncateText } from './../../Functionalities/bookFunction';
 import { useEffect, useState } from "react";
-import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from './../../Functionalities/localStorageUtil'
+import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from './../../Functionalities/localStorageUtil';
+import toast from 'react-hot-toast'; port toast
 
 // eslint-disable-next-line react/prop-types
 const TopSellingBooks = ({ books, isLoading }) => {
@@ -17,6 +18,12 @@ const TopSellingBooks = ({ books, isLoading }) => {
         const updatedBooks = toggleBookInWishlist(book, wishlistedBooks);
         setWishlistedBooks(updatedBooks);
         saveWishlistedBooks(updatedBooks);
+
+        
+        const message = updatedBooks.some(wishlistedBook => wishlistedBook.id === book.id)
+            ? `Book added to wishlist!`
+            : `Book removed from wishlist!`;
+        toast.success(message); 
     };
 
     if (isLoading) return (
@@ -51,8 +58,8 @@ const TopSellingBooks = ({ books, isLoading }) => {
                                 <p className="font-bold text-xs">Author : <span className="font-normal">
                                     {truncateText(reversedBooks[0].authors[0].name, 3)}
                                 </span></p>
-                                <p className="text-xs text-gray-500">Genre: {truncateText(reversedBooks[0].subjects.join(', '), 4)}</p> 
-                                <p className="text-xs text-gray-500">ID: {reversedBooks[0].id}</p> 
+                                <p className="text-xs text-gray-500">Genre: {truncateText(reversedBooks[0].subjects.join(', '), 4)}</p>
+                                <p className="text-xs text-gray-500">ID: {reversedBooks[0].id}</p>
                             </div>
                         </div>
                         <div className="flex justify-between items-center mb-3 text-xs">
@@ -82,8 +89,8 @@ const TopSellingBooks = ({ books, isLoading }) => {
                                 <p className="font-bold text-xs">Author : <span className="font-normal">
                                     {truncateText(book.authors[0].name, 3)}
                                 </span></p>
-                                <p className="text-xs text-gray-500">Genre: {truncateText(book.subjects.join(', '), 2)}</p> 
-                                <p className="text-xs text-gray-500">ID: {book.id}</p> 
+                                <p className="text-xs text-gray-500">Genre: {truncateText(book.subjects.join(', '), 2)}</p>
+                                <p className="text-xs text-gray-500">ID: {book.id}</p>
                             </div>
                         </div>
                         <div className="flex justify-between items-center mb-3 text-xs">

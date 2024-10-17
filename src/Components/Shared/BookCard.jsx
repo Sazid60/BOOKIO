@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { truncateText } from './../../Functionalities/bookFunction';
-import { getWishlistedBooks, saveWishlistedBooks } from '../../Functionalities/localStorageUtil'; 
+import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from '../../Functionalities/localStorageUtil'; 
+import toast from 'react-hot-toast'; 
 
 const BookCard = ({ book }) => {
     const [isWishlisted, setIsWishlisted] = useState(false);
 
     const toggleWishlist = () => {
-        const wishlistedBooks = getWishlistedBooks()
-        const updatedBooks = isWishlisted
-            ? wishlistedBooks.filter(wishlistedBook => wishlistedBook.id !== book.id)
-            : [...wishlistedBooks, book];
+        const wishlistedBooks = getWishlistedBooks();
+        const updatedBooks = toggleBookInWishlist(book, wishlistedBooks);
 
+        
         saveWishlistedBooks(updatedBooks);
-        setIsWishlisted(!isWishlisted); 
+
+        
+        setIsWishlisted(updatedBooks.some(wishlistedBook => wishlistedBook.id === book.id));
+        
+        
+        toast.success(isWishlisted ? `Book removed from wishlist!` : `Book added to wishlist!`);
     };
 
     useEffect(() => {
