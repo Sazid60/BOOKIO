@@ -19,21 +19,21 @@ const Footer = () => {
         <div className="space-y-4">
           <h3 className="font-bold text-base md:text-lg lg:text-xl">MAIN MENU</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Home</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Catalog</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Specials</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Pages</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Product Pages</a></li>
+            <li><a href="#" className="hover:text-violet-600   text-sm md:text-base">Home</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Catalog</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Specials</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Pages</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Product Pages</a></li>
           </ul>
         </div>
         <div className="space-y-4">
           <h3 className="font-bold text-base md:text-lg lg:text-xl">CUSTOMER SERVICE</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Contact Us</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Shipping Info</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Returns</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">FAQs</a></li>
-            <li><a href="#" className="hover:text-[#CFAE7A]  text-sm md:text-base">Support</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Contact Us</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Shipping Info</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Returns</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">FAQs</a></li>
+            <li><a href="#" className="hover:text-violet-600  text-sm md:text-base">Support</a></li>
           </ul>
         </div>
         <div className="space-y-4">
@@ -57,7 +57,7 @@ const Footer = () => {
             <a href="#" className="text-blue-400 hover:text-blue-600 text-sm md:text-base">
               <FaTwitter />
             </a>
-            <a href="#" className="text-red-500 hover:text-[#CFAE7A]  text-sm md:text-base">
+            <a href="#" className="text-red-500 hover:text-violet-600  text-sm md:text-base">
               <FaPinterest />
             </a>
             <a href="#" className="text-red-700 hover:text-red-900 text-sm md:text-base">
