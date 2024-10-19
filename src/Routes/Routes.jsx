@@ -4,12 +4,13 @@ import Home from "../Pages/Home";
 import ErrorPage from "../Components/Shared/ErrorPage";
 import Wishlist from "../Pages/Wishlist";
 import ExploreBooks from "../Pages/ExploreBooks";
+import BookDetailsPage from "../Pages/BookDetailsPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout/>,
+        element: <MainLayout />,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path: "/wishlist",
                 element: <Wishlist />,
+            },
+            {
+                path: "/book-details/:id",
+                element: <BookDetailsPage />,
+                loader: ({ params }) => fetch(`https://gutendex.com/books/${params.id}`)
             },
         ]
     },

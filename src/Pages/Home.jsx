@@ -18,9 +18,7 @@ const Home = () => {
             return data
         },
     })
-
-
-    // console.log(allBooks.results)
+    
     const books = allBooks.results
 
     return (

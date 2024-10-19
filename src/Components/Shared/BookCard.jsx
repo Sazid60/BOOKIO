@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { truncateText } from './../../Functionalities/bookFunction';
-import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from '../../Functionalities/localStorageUtil'; 
-import toast from 'react-hot-toast'; 
+import { getWishlistedBooks, saveWishlistedBooks, toggleBookInWishlist } from '../../Functionalities/localStorageUtil';
+import toast from 'react-hot-toast';
+import { Link } from "react-router-dom";
 
 const BookCard = ({ book }) => {
     const [isWishlisted, setIsWishlisted] = useState(false);
@@ -11,13 +12,13 @@ const BookCard = ({ book }) => {
         const wishlistedBooks = getWishlistedBooks();
         const updatedBooks = toggleBookInWishlist(book, wishlistedBooks);
 
-        
+
         saveWishlistedBooks(updatedBooks);
 
-        
+
         setIsWishlisted(updatedBooks.some(wishlistedBook => wishlistedBook.id === book.id));
-        
-        
+
+
         toast.success(isWishlisted ? `Book removed from wishlist!` : `Book added to wishlist!`);
     };
 
@@ -49,8 +50,12 @@ const BookCard = ({ book }) => {
                         Author: <span className="font-normal">{authorName}</span>
                     </p>
                 </div>
-                <p className="text-xs text-gray-500 text-center">Genre: {genre}</p>
-                <p className="text-xs text-gray-500 text-center">ID: {id}</p>
+                <p className="font-bold text-xs">
+                    Genre: <span className="font-normal">{genre}</span>
+                </p>
+                <p className="font-bold text-xs">
+                    ID: <span className="font-normal">{id}</span>
+                </p>
             </div>
             <div className="flex justify-between items-center mb-3 text-xs">
                 <a href={book?.formats["text/html"]} target="_blank" rel="noopener noreferrer">
@@ -60,9 +65,12 @@ const BookCard = ({ book }) => {
                     {isWishlisted ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
                 </button>
             </div>
-            <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">
-                View Details
-            </button>
+            <Link to={`/book-details/${book.id}`}>
+                <button className="w-full text-center border border-black p-1 hover:text-indigo-500 text-xs">
+                    View Details
+                </button>
+            </Link>
+
         </div>
     );
 };
