@@ -34,6 +34,8 @@ Bookio is an online platform that offers a comprehensive collection of books whe
 - **React.js**: Frontend framework used to build interactive UI components.
 - **Tailwind CSS**: Utility-first CSS framework for styling the website.
 - **Local Storage**: Used for managing the Wishlist feature.
+- **AXIOS**: Used for fetching data from the server.
+- **Tanstack Query**: Used for optimizing data fetching.
 - **React Router**: For navigation between pages (Book details, Wishlist, etc.).
 - **React Icons**: For displaying icons like heart icons for Wishlist functionality.
 - **React Hot Toast**: For showing success notifications when adding or removing books from the Wishlist.
