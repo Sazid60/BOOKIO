@@ -25,22 +25,23 @@ const BookDetailsPage = () => {
     }, [book.id]);
 
     return (
-        <div className="pt-24" style={{ scrollMarginTop: '200px' }}>
-            <div className="font-sans p-4 max-w-4xl mx-auto bg-white border ">
+        <div className="py-20 md:py-36 bg-[url('/Promo-BG.jpg')] bg-cover bg-fixed">
+            <div className="font-sans p-4 max-w-4xl mx-auto  ">
                 <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <div className="flex justify-center items-center w-full md:w-1/3">
+                    <div className="flex justify-center items-center w-full xl:w-1/3">
                         <img
                             src={book.formats["image/jpeg"]}
                             alt={book?.title}
-                            className="w-[250px] h-[350px] object-cover  shadow-2xl "
+                            className="w-[300px] h-[450px] object-cover  shadow-2xl "
                         />
                     </div>
-                    <div className="w-full md:w-2/3 font-caveat">
-                        <h1 className="text-2xl font-bold mb-3">{book?.title || "Unknown Title"}</h1>
+                    <div className="w-full xl:w-2/3 font-caveat">
+                        <h1 className="text-lg lg:text-xl xl:text-2xl font-bold mb-3">{book?.title || "Unknown Title"}</h1>
                         <p className="text-gray-700 text-sm mb-2">
                             <span className="font-bold">Author :</span> {book?.authors[0]?.name}
                         </p>
                         <p className="text-gray-600 text-sm mb-4"><span className="font-bold">Genre : </span> {book?.subjects}</p>
+                        <p className="text-gray-600 text-sm mb-4"><span className="font-bold">Language : </span> {book?.languages}</p>
                         <p className="text-gray-600 text-sm mb-4"><span className="font-bold">ID : </span> {book?.id}</p>
                         <a
                             href={book?.formats["text/html"]}
